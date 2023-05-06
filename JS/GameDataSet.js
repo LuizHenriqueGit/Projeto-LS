@@ -8,13 +8,16 @@ let contador = 9
 
 export function CreateCard(nome,image,genero){
 
+    let cardgen = ``
+    genero.map((element)=> cardgen += `<p class="card-text"><span class="badge text-bg-primary fs-6">${element}</span></p>`)
+
     const card =`<div class="col">
     <div class="card">
-        <img src="${image}" class="card-img-top" alt="...">
+        <img src="${image}" class="card-img-top" alt="..a.">
         <div class="card-body" >
             <h5 class="card-title text-center fs-4">${nome}</h5>
             <hr>
-            <p class="card-text"><span class="badge text-bg-primary fs-6">Gênero: ${genero}</span></p>  
+            ${cardgen}  
         </div>
     </div> `;
 
