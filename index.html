@@ -12,6 +12,7 @@
     <title>Game Lib - Sua Biblioteca de Jogos</title>
   </head>
 <body>
+    <!-- Barra de navegação-->
     <nav class="sticky-top navbar navbar-expand-lg navbar-dark bg-dark  m-auto ">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Game Lib</a>
@@ -33,6 +34,7 @@
                   <li><a class="dropdown-item" href="#">Ação e Aventura</a></li>
                   <li><a class="dropdown-item" href="#">Sandbox</a></li>
                   <li><a class="dropdown-item" href="#">RPG</a></li>
+                  <li><a class="dropdown-item" href="#">Outros</a></li>
                 </ul>
               </li>
             </ul>
@@ -43,9 +45,6 @@
           </div>
         </div>
     </nav>
-
-<!-- Button trigger modal -->
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,27 +67,27 @@
           <div id="genero-game" class="form-group m-2">
             <p><strong>Gênero do Jogo:</strong></p>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="RPG">
               <label class="form-check-label" for="gridCheck">RPG</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="MOBA">
               <label class="form-check-label" for="gridCheck">MOBA</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="Sandbox">
               <label class="form-check-label" for="gridCheck">Sandbox</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="Ação e Aventura">
               <label class="form-check-label" for="gridCheck">Ação e Aventura</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="FPS">
               <label class="form-check-label" for="gridCheck">FPS</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="Outros">
               <label class="form-check-label" for="gridCheck">Outros</label>
             </div>
           </div>
@@ -107,6 +106,7 @@
     <div class="container my-2">
       <h1 id="titulo" class="text-center text-light">Minha Biblioteca</h1>
 
+      <!-- Button trigger modal -->
       <div style="text-align: right; padding-bottom: 12px;",><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Adicionar Jogo
       </button></div>

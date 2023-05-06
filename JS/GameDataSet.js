@@ -9,7 +9,7 @@ let contador = 9
 export function CreateCard(nome,image,genero){
 
     let cardgen = ``
-    genero.map((element)=> cardgen += `<p class="card-text"><span class="badge text-bg-primary fs-6">${element}</span></p>`)
+    genero.map((element)=> cardgen += `<div class="card-text p-3"><span class="badge text-bg-primary fs-6">${element}</span></div>`)
 
     const card =`<div class="col">
     <div class="card">
@@ -17,7 +17,7 @@ export function CreateCard(nome,image,genero){
         <div class="card-body" >
             <h5 class="card-title text-center fs-4">${nome}</h5>
             <hr>
-            ${cardgen}  
+            <div class="d-flex justify-center align-items-center">${cardgen}</div>
         </div>
     </div> `;
 
@@ -29,26 +29,23 @@ export function LoadCards(){
     CardGames.innerHTML = " "
     GamesArray.map((element) => CreateCard(element.nome,element.image,element.genero));  
 }
-
-export function FilterCards(ident){
-    const filtro = Dataset ; 
-    const test1 = filtro.filter(filtro => filtro.id == ident);
-    //CreateCard(test1.nome,test1.image,test1.genero);
-
-    test1.forEach(({nome,image,genero,preco}) =>ShowBuyCard(nome,image,genero,preco));   
-}
-
 function addGame() {
     const nome = document.querySelector("#name-game");
     const url = document.querySelector("#url-img-game");
-    const genero = document.querySelector("#genero-game");
+    const genero = document.querySelectorAll("input[id='gridCheck']:checked");
+
+    let gen = [] 
+
+    for(let i=0; i<3;i++) {
+        gen.push(genero[i].value)
+    }
 
     contador += 1
 
     const novoObjeto = {
         id: contador,
         nome: nome.value,
-        genero: genero.value,
+        genero: gen,
         image: url.value,
     }
 
@@ -59,9 +56,19 @@ function addGame() {
     nome.value = ""
     url.value = ""
     genero.value = ""
-
-    console.log(GamesArray)
 }
+
+export function filter(g="RPG") {
+    const result = GamesArray.filter(word => word.genero == g)
+    console.log(result)
+}
+
+export function FilterCards(genero){
+    result =GamesArray.filter(function filtrog(){
+      for(g of GamesArray.genero){if(g == genero){return true}}
+    });
+    console.log(result);
+  }
 
 document.querySelector("#btn-add")
 .addEventListener("click", (event) => addGame())
