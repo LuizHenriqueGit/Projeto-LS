@@ -1,88 +1,79 @@
 const Dataset = [
     {
         id:'1',
-        nome: 'the witcher',
+        nome: 'The Witcher 3',
         image:'img/the witcher 3.png',
-        genero:'mundo aberto',
-        preco:'100',
+        genero:'RPG',
     },
     {
         id:'2',
-        nome: 'terraria',
+        nome: 'Terraria',
         image:'img/terraria.webp',
-        genero:'sandbox',
-        preco:'35',
+        genero:'Sandbox',
     },
 
     {
         id:'3',
-        nome: 'elden ring',
+        nome: 'Elden Ring',
         image:'img/elden ring.jpg',
-        genero:'mundo aberto',
-        preco:'250',
+        genero:'RPG',
     },
     {
         id:'4',
-        nome: 'gta V',
+        nome: 'Grand Theft Auto V',
         image:'img/gtav.jpg',
-        genero:'mundo aberto',
-        preco:'150',
+        genero:'Ação e Aventura',
     },
 
     {
         id:'5',
-        nome: 'counter strike',
+        nome: 'Counter Strike',
         image:'img/cs.jpg',
-        genero:'fps',
-        preco:'45',
+        genero:'FPS',
     },
 
     {
         id:'6',
-        nome:'minecraft',
+        nome:'Minecraft',
         image:'./img/minecraft2.webp',
-        genero:'sandbox',
-        preco:'85',
+        genero:'Sandbox',
     },
 
     {
         id:'7',
-        nome:'raibow six',
+        nome:'Rainbow Six Siege',
         image:'./img/r6.png',
-        genero:'fps',
-        preco:'45',
+        genero:'FPS',
     },
 
     {
         id:'8',
-        nome:'red dead 2',
+        nome:'Red Dead Redemption 2',
         image:'./img/reddead2.jpg',
-        genero:'mundo aberto',
-        preco:'200',
+        genero:'Ação e Aventura',
     },
     {
         id:'9',
-        nome:'warzone',
+        nome:'Call of Duty - Warzone',
         image:'./img/warzone.jpg',
-        genero:'fps',
-        preco:'0',
+        genero:'FPS',
     },
 
 ];
 
-function readAll(){
-    if(!localStorage.getItem('games')){
-        localStorage.setItem('games',JSON.stringify(Dataset));
-    }
-    return JSON
-}
-function create(GameData){
-    const data = JSON.parse(localStorage.getItem('games'));
+// function readAll(){
+//     if(!localStorage.getItem('games')){
+//         localStorage.setItem('games',JSON.stringify(Dataset));
+//     }
+//     return JSON
+// }
+// function create(GameData){
+//     const data = JSON.parse(localStorage.getItem('games'));
 
-    data.push(GameData);
+//     data.push(GameData);
 
-    localStorage.setItem('games', JSON.stringify(data));
-}
+//     localStorage.setItem('games', JSON.stringify(data));
+// }
 
 export default Dataset;
 

@@ -2,17 +2,20 @@ import Dataset from "./data.js";
  
 const CardGames = document.querySelector('#Game-Cards')
 
+let GamesArray = Dataset
+
+let contador = 9 
+
 export function CreateCard(nome,image,genero){
 
     const card =`<div class="col">
     <div class="card">
         <img src="${image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${nome}</h5>
-            <p class="card-text">Genero: ${genero}</p>
-            <button id="btn" type="button" class="btn btn-primary rounded-circle text-right">+</button>
+        <div class="card-body" >
+            <h5 class="card-title text-center fs-4">${nome}</h5>
+            <hr>
+            <p class="card-text"><span class="badge text-bg-primary fs-6">Gênero: ${genero}</span></p>  
         </div>
-    </div>
     </div> `;
 
     CardGames.insertAdjacentHTML('beforeend', card);
@@ -20,36 +23,43 @@ export function CreateCard(nome,image,genero){
 }
 
 export function LoadCards(){
-    Dataset.forEach(({nome,image,genero}) => CreateCard(nome,image,genero));  
+    CardGames.innerHTML = " "
+    GamesArray.map((element) => CreateCard(element.nome,element.image,element.genero));  
 }
 
 export function FilterCards(ident){
-    const filtro =Dataset ; 
+    const filtro = Dataset ; 
     const test1 = filtro.filter(filtro => filtro.id == ident);
     //CreateCard(test1.nome,test1.image,test1.genero);
 
     test1.forEach(({nome,image,genero,preco}) =>ShowBuyCard(nome,image,genero,preco));   
 }
 
-export function ShowBuyCard(nome,image,genero,preco){
+function addGame() {
+    const nome = document.querySelector("#name-game");
+    const url = document.querySelector("#url-img-game");
+    const genero = document.querySelector("#genero-game");
 
-    const buycard =`<div class="col">
-    <div class="card">
-        <img src="${image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${nome}</h5>
-            <h6 class="card-text">Genero: ${genero}</h6>
-            <p id ="preco">$: ${preco}</p>
-            <button id="btn-buy" type="button" class="btn btn-primary rounded-circle text-right">%</button>
-        </div>
-    </div>
-    </div>`
+    contador += 1
 
-    CardGames.insertAdjacentHTML('beforeend', buycard);
+    const novoObjeto = {
+        id: contador,
+        nome: nome.value,
+        genero: genero.value,
+        image: url.value,
+    }
+
+    GamesArray.push(novoObjeto)
+
+    LoadCards()
+
+    nome.value = ""
+    url.value = ""
+    genero.value = ""
+
+    console.log(GamesArray)
 }
 
-//função para dar um desconto no preço usando map ,não consegui implementar
-function dicount(){
-    
-}
+document.querySelector("#btn-add")
+.addEventListener("click", (event) => addGame())
 
