@@ -16,7 +16,7 @@ const Dataset = [
         id:'3',
         nome: 'Elden Ring',
         image:'img/elden ring.jpg',
-        genero:['RPG','Ação'],
+        genero:['RPG','Ação','Outros'],
     },
     {
         id:'4',

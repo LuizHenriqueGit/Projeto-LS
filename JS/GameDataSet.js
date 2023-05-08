@@ -14,14 +14,14 @@ export function CreateCard(element){
     );
   
     const card = `<div class="col">
-      <div class="card border-light mb-3">
+      <div class="card border-dark text-bg-dark mb-3">
           <img src="${element.image}" class="card-img-top" alt="...">
           <div class="card-body" >
               <h5 class="card-title text-center fs-4">${element.nome}</h5>
               <hr>
               <div class="row row-cols-md-3 row-cols-lg-3  row-cols-1 justify-content-around align-items-center ">${cardgen}</div>
           </div>
-          <div id="remove" style="position: absolute; right: 0;"><button onclick ="removeGame(${element.id})"id="${element.id}"type="button" class="rounded btn btn-danger "><i class="bi bi-trash3-fill"></i></button></div>
+          <div id="remove" style="position: absolute; right: 0; margin-top:4px; margin-right:4px;"><button onclick ="confirmRemove(${element.id})"id="${element.id}"type="button" class="rounded btn btn-danger "><i class="bi bi-trash3-fill"></i></button></div>
       </div> `;
   
     CardGames.insertAdjacentHTML('beforeend', card);
@@ -84,7 +84,16 @@ function addGame() {
     .addEventListener('click', (event) => addGame());
   
   window.removeGame = removeGame;
-  
+  window.confirmRemove =confirmRemove;
+
+function confirmRemove(id){
+    const response = window.confirm("Deseja mesmo remover esse jogo?")
+
+    if (response){
+        removeGame(id)
+    }
+}
+
 export function filterCards(){
 
 }
