@@ -24,7 +24,10 @@ export function CreateCard(element){
               <div class="row row-cols-md-3 row-cols-lg-3 row-cols-1 justify-content-around align-items-center">${cardgen}</div>
           </div>
           <div id="remove" style="position: absolute; right: 0; margin-top:4px; margin-right:4px;"><button onclick ="confirmRemove(${element.id})"id="${element.id}"type="button" class="rounded btn btn-danger"><i class="bi bi-trash3-fill"></i></button></div>
-      </div> `;
+          <div class ="position-absolute top-0 start-0" style ="margin-top:4px; margin-left:4px;">
+          <a href ="${element.link}" target ="_blank"><button type="button" class="rounded btn btn-success"><i class="bi bi-cart3"></i></button></a>
+          </div>
+      </div>`;
   
     CardGames.insertAdjacentHTML('beforeend', card);
   
@@ -42,18 +45,20 @@ export function loadCards(){
 function addGame() {
     const nome = document.querySelector('#name-game');
     const url = document.querySelector('#url-img-game');
+    const compra =document.querySelector('#url-game');
     const genero = document.querySelectorAll("input[id='gridCheck']:checked");
   
     let gen = [];
 
     console.log(genero)
   
-    for (let i = 0; i < 3; i++) {
-      gen.push(genero[i].value);
-    }
-  
-    console.log(genero[0])
+    let cont =0;
+   while(genero[cont] != undefined && cont < 3){
+    gen.push(genero[cont].value);
+    cont += 1 ;
+   };
 
+    console.log(gen);
     contador += 1;
   
     const novoObjeto = {
@@ -61,6 +66,7 @@ function addGame() {
       nome: nome.value,
       genero: gen,
       image: url.value,
+      link: compra.value,
     };
   
     GamesArray.push(novoObjeto);
@@ -69,7 +75,7 @@ function addGame() {
   
     nome.value = '';
     url.value = '';
-    for(var i=0;i<genero.length;i++) {
+    for(let i=0;i<genero.length;i++) {
       genero[i].checked = gridCheck.unchecked
     }
   }
@@ -83,8 +89,8 @@ export function removeGame(id) {
   
 document.querySelector('.dropdown-menu')
 .addEventListener('click', (event) => {
-  FilterCards(event.target.id);
-  console.log(event.target.id);
+  filterCards(event.target.innerHTML);
+  console.log(event.target.innerHTML);
 });
   
 // EventListener que será acionado ao clicar no botão Adicionar jogo,
@@ -108,7 +114,24 @@ function confirmRemove(id){
 }
 
 // Função para filtrar os jogos pelo gênero
-
-export function filterCards(){
-
+function filtergeneros(element,genero){
+  for(let i=0;i<element.genero.length;i++){
+    if(element.genero[i] == genero){return element}
+  }
 }
+export function filterCards(genero){
+//let res = GamesArray.filter(element => filtergeneros(element,genero) == element);
+let filter = []
+for(let element of Dataset){
+  let res
+ res = filtergeneros(element,genero)
+ if(res != undefined){
+  filter.push(res);
+ }
+}
+GamesArray = filter
+loadCards()
+}
+
+window.removeGame = removeGame;
+window.confirmRemove =confirmRemove;

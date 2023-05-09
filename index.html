@@ -21,7 +21,7 @@
   <!-- Header da página -->
     <nav class="sticky-top navbar navbar-expand-lg navbar-dark bg-dark  m-auto ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Game Lib</a>
+          <a class="navbar-brand fs-4" href="#">Game Lib</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,9 +37,13 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="#FPS">FPS</a></li>
                   <li><a class="dropdown-item" href="#MOBA">MOBA</a></li>
-                  <li><a class="dropdown-item" href="#Ação">Ação</a></li>
+                  <li><a class="dropdown-item" href="#Action">Action</a></li>
                   <li><a class="dropdown-item" href="#Sandbox">Sandbox</a></li>
                   <li><a class="dropdown-item" href="#RPG">RPG</a></li>
+                  <li><a class="dropdown-item" href="#Sports">Sports</a></li>
+                  <li><a class="dropdown-item" href="#Open-World">Open World</a></li>
+                  <li><a class="dropdown-item" href="#TP">Third Person</a></li>
+                  <li><a class="dropdown-item" href="#Others">Others</a></li>
                 </ul>
               </li>
             </ul>
@@ -69,8 +73,16 @@
             <label for="url-img-game"><strong>Link da Imagem:</strong></label>
            <input type="text" class="form-control" name="url-img-game" id="url-img-game">
           </div>
-          <div id="genero-game" class="form-group m-2">
-            <p><strong>Gênero do Jogo:</strong></p>
+          <div class="form-group m-2">
+            <label for="url-game"><strong>Link de Compra:</strong></label>
+           <input type="text" class="form-control" name="url-game" id="url-game">
+          </div>
+          <p><strong>Gênero do Jogo:</strong></p>
+          <div id="genero-game" class="form-group m-2 row row-cols-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="Open World">
+              <label class="form-check-label" for="gridCheck">Open World</label>
+            </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="gridCheck" value="RPG">
               <label class="form-check-label" for="gridCheck">RPG</label>
@@ -84,16 +96,24 @@
               <label class="form-check-label" for="gridCheck">Sandbox</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck" value="Ação">
-              <label class="form-check-label" for="gridCheck">Ação</label>
+              <input class="form-check-input" type="checkbox" id="gridCheck" value="Action">
+              <label class="form-check-label" for="gridCheck">Action</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="gridCheck" value ="FPS">
               <label class="form-check-label" for="gridCheck">FPS</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck" value ="Outros">
-              <label class="form-check-label" for="gridCheck">Outros</label>
+              <input class="form-check-input" type="checkbox" id="gridCheck" value ="Sports">
+              <label class="form-check-label" for="gridCheck">Sports</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value ="Third Person">
+              <label class="form-check-label" for="gridCheck">Third Person</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck" value ="Others">
+              <label class="form-check-label" for="gridCheck">Others</label>
             </div>
           </div>
         </form>
@@ -105,14 +125,14 @@
     </div>
   </div>
 </div>
-
+  <!--Corpo da página-->
     <div class="container my-2">
       <h1 id="titulo" class="text-center text-dark fw-bold">Biblioteca</h1>
 
       <div id="btn-add"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Adicionar Jogo
       </button></div>
-
+        <!--Div onde e inserido os cards dos jogos-->
         <div id="Game-Cards" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4"></div>
     </div>
 
