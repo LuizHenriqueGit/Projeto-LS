@@ -3,7 +3,7 @@ const Dataset = [
         id:'1',
         nome: 'The Witcher 3',
         image:'img/the witcher 3.png',
-        genero:['RPG'],
+        genero:['RPG','Mundo Aberto'],
     },
     {
         id:'2',
@@ -22,14 +22,14 @@ const Dataset = [
         id:'4',
         nome: 'Grand Theft Auto V',
         image:'img/gtav.jpg',
-        genero:['Ação'],
+        genero:['Ação','Mundo Aberto'],
     },
 
     {
         id:'5',
         nome: 'Counter Strike',
         image:'img/cs.jpg',
-        genero:['FPS'],
+        genero:['FPS','Outros'],
     },
 
     {
@@ -50,7 +50,7 @@ const Dataset = [
         id:'8',
         nome:'Red Dead Redemption 2',
         image:'./img/reddead2.jpg',
-        genero:['Ação'],
+        genero:['Ação', 'Mundo Aberto'],
     },
     {
         id:'9',
@@ -58,7 +58,60 @@ const Dataset = [
         image:'./img/warzone.jpg',
         genero:['FPS'],
     },
-
+    {
+        id:'10',
+        nome:'Dead Island 2',
+        image:'./img/dead-island-2.jpg',
+        genero:['Mundo Aberto','FPS','Outros'],
+    },
+    {
+        id:'11',
+        nome:'Dishonored 2',
+        image:'./img/dishonored-2.png',
+        genero:['FPS','Ação','Outros'],
+    },
+    {
+        id:'12',
+        nome:'Dota 2',
+        image:'./img/dota-2.jpg',
+        genero:['MOBA', 'Outros'],
+    },
+    {
+        id:'13',
+        nome:'FIFA 22',
+        image:'./img/fifa-22.jpg',
+        genero:['Esportes', 'Outros'],
+    },
+    {
+        id:'14',
+        nome:'God of War - Ragnarok',
+        image:'./img/gow-ragnarok.jpg',
+        genero:['Ação', 'Terceira Pessoa', 'RPG'],
+    },
+    {
+        id:'15',
+        nome:'League of Legends',
+        image:'./img/lol.jpg',
+        genero:['MOBA', 'RPG', 'Outros'],
+    },
+    {
+        id:'16',
+        nome:'Uncharted 4',
+        image:'./img/uncharted-4.jpg',
+        genero:['Terceira Pessoa', 'FPS', 'Outros'],
+    },
+    {
+        id:'17',
+        nome:'Valorant',
+        image:'./img/valorant.jpg',
+        genero:['FPS', 'Outros'],
+    },
+    {
+        id:'18',
+        nome:'Battlefield 1',
+        image:'./img/bf-1.jpg',
+        genero:['FPS', 'Ação', 'Outros'],
+    },
 ];
 
 // function readAll(){

@@ -4,7 +4,7 @@ const CardGames = document.querySelector('#Game-Cards') // div onde os cards ser
 
 let GamesArray = Dataset // Cópia do array no data.js
 
-let contador = 9 // Número inicial de objetos no array Dataset
+let contador = 18 // Número inicial de objetos no array Dataset
 
 // Função que cria cards utilizando os objetos do data.js
 
@@ -45,11 +45,15 @@ function addGame() {
     const genero = document.querySelectorAll("input[id='gridCheck']:checked");
   
     let gen = [];
+
+    console.log(genero)
   
     for (let i = 0; i < 3; i++) {
       gen.push(genero[i].value);
     }
   
+    console.log(genero[0])
+
     contador += 1;
   
     const novoObjeto = {
