@@ -5,6 +5,6 @@ Link da página: https://luizhenriquegit.github.io/Projeto-LS/
 
 ## Integrantes do grupo:
 
-* Luiz Henrique 
-* Lucas Jaud
-* Lucas Henrique
+* Luiz Henrique ([github](https://github.com/LuizHenriqueGit))
+* Lucas Jaud ([github](https://github.com/LucasJaud))
+* Lucas Henrique ([github](https://github.com/lukehenri13))
