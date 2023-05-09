@@ -17,7 +17,7 @@ export function CreateCard(element){
   
     const card = `<div class="col">
       <div class="card border-dark text-bg-dark mb-3">
-          <img src="${element.image}" class="card-img-top" alt="...">
+          <img src="${element.image}" class ="card-img-top w-100" style ="height: 250px">
           <div class="card-body" >
               <h5 class="card-title text-center fs-4">${element.nome}</h5>
               <hr>
