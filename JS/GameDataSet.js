@@ -65,7 +65,9 @@ function addGame() {
   
     nome.value = '';
     url.value = '';
-    genero.checked = false;
+    for(var i=0;i<genero.length;i++) {
+      genero[i].checked = gridCheck.unchecked
+    }
   }
 
 // Função para remover o jogo(objeto) através do seu id
