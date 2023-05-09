@@ -1,10 +1,12 @@
 import Dataset from "./data.js";
  
-const CardGames = document.querySelector('#Game-Cards')
+const CardGames = document.querySelector('#Game-Cards') // div onde os cards serão inseridos
 
-let GamesArray = Dataset
+let GamesArray = Dataset // Cópia do array no data.js
 
-let contador = 9 
+let contador = 9 // Número inicial de objetos no array Dataset
+
+// Função que cria cards utilizando os objetos do data.js
 
 export function CreateCard(element){
     let cardgen = ``;
@@ -19,27 +21,24 @@ export function CreateCard(element){
           <div class="card-body" >
               <h5 class="card-title text-center fs-4">${element.nome}</h5>
               <hr>
-              <div class="row row-cols-md-3 row-cols-lg-3  row-cols-1 justify-content-around align-items-center ">${cardgen}</div>
+              <div class="row row-cols-md-3 row-cols-lg-3 row-cols-1 justify-content-around align-items-center">${cardgen}</div>
           </div>
-          <div id="remove" style="position: absolute; right: 0; margin-top:4px; margin-right:4px;"><button onclick ="confirmRemove(${element.id})"id="${element.id}"type="button" class="rounded btn btn-danger "><i class="bi bi-trash3-fill"></i></button></div>
+          <div id="remove" style="position: absolute; right: 0; margin-top:4px; margin-right:4px;"><button onclick ="confirmRemove(${element.id})"id="${element.id}"type="button" class="rounded btn btn-danger"><i class="bi bi-trash3-fill"></i></button></div>
       </div> `;
   
     CardGames.insertAdjacentHTML('beforeend', card);
   
 }
 
+// Função para carregar cards
+
 export function loadCards(){
     CardGames.innerHTML = " "
     GamesArray.map((element) => CreateCard(element));  
 }
 
-// export function FilterCards(genero){
-//   result =GamesArray.filter(function filtrog(){
-//     for(g of GamesArray.genero){if(g == genero){return true}}
-//   });
-//   console.log(result);
-// }
-// function para adicionar um novo jogo na blibioteca
+// Função para adicionar jogos(objetos) ao data.js
+
 function addGame() {
     const nome = document.querySelector('#name-game');
     const url = document.querySelector('#url-img-game');
@@ -66,25 +65,33 @@ function addGame() {
   
     nome.value = '';
     url.value = '';
-    genero.value = '';
+    genero.checked = false;
   }
 
-  export function removeGame(id) {
+// Função para remover o jogo(objeto) através do seu id
+
+export function removeGame(id) {
     GamesArray = GamesArray.filter((element) => element.id != id);
     loadCards();
   }
   
-  document.querySelector('.dropdown-menu').addEventListener('click', (event) => {
-    FilterCards(event.target.id);
-    console.log(event.target.id);
-  });
+document.querySelector('.dropdown-menu')
+.addEventListener('click', (event) => {
+  FilterCards(event.target.id);
+  console.log(event.target.id);
+});
   
-  document
-    .querySelector('#btn-add')
-    .addEventListener('click', (event) => addGame());
+// EventListener que será acionado ao clicar no botão Adicionar jogo,
+
+document
+.querySelector('#btn-add')
+.addEventListener('click', (event) => addGame());
   
   window.removeGame = removeGame;
   window.confirmRemove =confirmRemove;
+
+
+// Função para confirmar a remoção do jogo(card) e chamar a a função de remover
 
 function confirmRemove(id){
     const response = window.confirm("Deseja mesmo remover esse jogo?")
@@ -93,6 +100,8 @@ function confirmRemove(id){
         removeGame(id)
     }
 }
+
+// Função para filtrar os jogos pelo gênero
 
 export function filterCards(){
 

@@ -1,3 +1,21 @@
 body {
  background-color:azure;   
 }
+
+/* Botão de adicionar novo jogo*/
+
+#btn-add {
+    text-align: right; 
+    padding-bottom: 12px;
+}
+
+/* Botão de excluir card*/
+
+.card div button {
+    opacity: 0;
+
+    transition: 0.5s;
+  }
+  .card:hover div button {
+    opacity: 1;
+  }
