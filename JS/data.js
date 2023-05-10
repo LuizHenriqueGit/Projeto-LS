@@ -18,7 +18,7 @@ const Dataset = [
         id:'3',
         nome: 'Elden Ring',
         image:'img/elden ring.jpg',
-        genero:['RPG','Action','Outros'],
+        genero:['RPG','Action','Others'],
         link: 'https://store.steampowered.com/app/1245620/ELDEN_RING/'
     },
     {
@@ -33,7 +33,7 @@ const Dataset = [
         id:'5',
         nome: 'Counter Strike',
         image:'img/cs.jpg',
-        genero:['FPS','Outros'],
+        genero:['FPS','Others'],
         link: 'https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/'
     },
 
@@ -71,28 +71,28 @@ const Dataset = [
         id:'10',
         nome:'Dead Island 2',
         image:'./img/dead-island-2.jpg',
-        genero:['Open World','FPS','Outros'],
+        genero:['Open World','FPS','Others'],
         link: 'https://store.epicgames.com/pt-BR/p/dead-island-2'
     },
     {
         id:'11',
         nome:'Dishonored 2',
         image:'./img/dishonored-2.png',
-        genero:['FPS','Action','Outros'],
+        genero:['FPS','Action','Others'],
         link: 'https://store.steampowered.com/app/403640/Dishonored_2/'
     },
     {
         id:'12',
         nome:'Dota 2',
         image:'./img/dota-2.jpg',
-        genero:['MOBA', 'Outros'],
+        genero:['MOBA', 'Others'],
         link: 'https://store.steampowered.com/app/570/Dota_2/'
     },
     {
         id:'13',
         nome:'FIFA 22',
         image:'./img/fifa-22.jpg',
-        genero:['Sports', 'Outros'],
+        genero:['Sports', 'Others'],
         link: 'https://store.steampowered.com/app/1506830/FIFA_22/'
     },
     {
@@ -106,28 +106,28 @@ const Dataset = [
         id:'15',
         nome:'League of Legends',
         image:'./img/lol.jpg',
-        genero:['MOBA', 'RPG', 'Outros'],
+        genero:['MOBA', 'RPG', 'Others'],
         link: 'https://signup.leagueoflegends.com/pt-br/signup/index?_gl=1*11bhyxi*_ga*OTIyNTk1MjU5LjE2ODM2NzUwMzg.#/'
     },
     {
         id:'16',
         nome:'Uncharted 4',
         image:'./img/uncharted-4.jpg',
-        genero:['Third Person', 'FPS', 'Outros'],
+        genero:['Third Person', 'FPS', 'Others'],
         link: 'https://store.steampowered.com/app/1659420/UNCHARTED_Coleo_Legado_dos_Ladres/'
     },
     {
         id:'17',
         nome:'Valorant',
         image:'./img/valorant.jpg',
-        genero:['FPS', 'Outros'],
+        genero:['FPS', 'Others'],
         link: 'https://playvalorant.com/pt-br/'
     },
     {
         id:'18',
         nome:'Battlefield 1',
         image:'./img/bf-1.jpg',
-        genero:['FPS', 'Action', 'Outros'],
+        genero:['FPS', 'Action', 'Others'],
         link: 'https://store.steampowered.com/app/1238840/Battlefield_1/'
     },
 ];
