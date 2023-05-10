@@ -35,9 +35,9 @@ export function CreateCard(element){
 
 // Função para carregar cards
 
-export function loadCards(){
+export function loadCards(lista = GamesArray){
     CardGames.innerHTML = " "
-    GamesArray.map((element) => CreateCard(element));  
+    lista.map((element) => CreateCard(element));  
 }
 
 // Função para adicionar jogos(objetos) ao data.js
@@ -75,6 +75,7 @@ function addGame() {
   
     nome.value = '';
     url.value = '';
+    compra.value ='';
     for(let i=0;i<genero.length;i++) {
       genero[i].checked = gridCheck.unchecked
     }
@@ -120,20 +121,21 @@ function filtergeneros(element,genero){
   }
 }
 export function filterCards(genero){
-let res = Dataset.filter(element => filtergeneros(element,genero) == element);
+let res = GamesArray.filter(element => filtergeneros(element,genero) == element);
 // let filter = []
 // for(let element of Dataset){
 //   let res
 //  res = filtergeneros(element,genero)
 //  if(res != undefined){
 //   filter.push(res);
-GamesArray = res
-loadCards();
+loadCards(res);
  //}
 //}
 //GamesArray = filter
 //loadCards()
 }
+document.querySelector("#homepage").addEventListener("click",(event) =>loadCards())
 
 window.removeGame = removeGame;
 window.confirmRemove =confirmRemove;
+window.loadCards =loadCards
