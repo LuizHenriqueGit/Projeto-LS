@@ -120,17 +120,19 @@ function filtergeneros(element,genero){
   }
 }
 export function filterCards(genero){
-//let res = GamesArray.filter(element => filtergeneros(element,genero) == element);
-let filter = []
-for(let element of Dataset){
-  let res
- res = filtergeneros(element,genero)
- if(res != undefined){
-  filter.push(res);
- }
-}
-GamesArray = filter
-loadCards()
+let res = Dataset.filter(element => filtergeneros(element,genero) == element);
+// let filter = []
+// for(let element of Dataset){
+//   let res
+//  res = filtergeneros(element,genero)
+//  if(res != undefined){
+//   filter.push(res);
+GamesArray = res
+loadCards();
+ //}
+//}
+//GamesArray = filter
+//loadCards()
 }
 
 window.removeGame = removeGame;
