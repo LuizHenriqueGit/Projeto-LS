@@ -1,4 +1,4 @@
-# Projeto para a Disciplina de Linguangens de Script - IFPB
+# Projeto para a Disciplina de Linguagens de Script - IFPB
 O projeto consiste numa biblioteca pessoal de jogos em que o usuário poderá adicionar novos jogos que desejar.
 
 Link da página: https://luizhenriquegit.github.io/Projeto-LS/
