@@ -158,7 +158,10 @@ if(regex.test(texto) ==false){
 window.alert("digite apenas caracteres validos!!");
 }
 else{
-  // res =games.filter(ele =>)
+ let res =games.filter(ele => ele.nome.toLowerCase() == texto.toLowerCase())
+console.log(res)
+CardGames.innerHTML =''
+res.map(ele => CreateCard(ele))
 }
 })
 
