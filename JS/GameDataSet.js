@@ -1,14 +1,17 @@
-import Dataset from "./data.js";
+// import Dataset from "./data.js";
  
 const CardGames = document.querySelector('#Game-Cards') // div onde os cards serão inseridos
 
-let GamesArray = Dataset // Cópia do array no data.js
+// let GamesArray = Dataset // Cópia do array no data.js
 
-let contador = 18 // Número inicial de objetos no array Dataset
+// let contador = 18 // Número inicial de objetos no array Dataset
 
 // Função que cria cards utilizando os objetos do data.js
+const regex = /^[a-zA-Z0-9]{1,30}$/;
+const response = await fetch('http://localhost:3000/Dataset') 
+const games =  await response.json();
 
-export function CreateCard(element){
+export async function CreateCard(element){
     let cardgen = ``;
     element.genero.map(
       (element) =>
@@ -29,20 +32,24 @@ export function CreateCard(element){
           </div>
       </div>`;
   
-    CardGames.insertAdjacentHTML('beforeend', card);
+     CardGames.insertAdjacentHTML('beforeend', card);
   
 }
 
 // Função para carregar cards
 
-export function loadCards(lista = GamesArray){
+export async function loadCards(data = games){
     CardGames.innerHTML = " "
-    lista.map((element) => CreateCard(element));  
+    // lista.map((element) => CreateCard(element)); 
+    // const response = await fetch('http://localhost:3000/Dataset') 
+    // const data =  await response.json();
+    data.map((element) => CreateCard(element))
+
 }
 
 // Função para adicionar jogos(objetos) ao data.js
 
-function addGame() {
+async function  addGame() {
     const nome = document.querySelector('#name-game');
     const url = document.querySelector('#url-img-game');
     const compra =document.querySelector('#url-game');
@@ -50,26 +57,29 @@ function addGame() {
   
     let gen = [];
 
-    console.log(genero)
-  
     let cont =0;
    while(genero[cont] != undefined && cont < 3){
     gen.push(genero[cont].value);
     cont += 1 ;
    };
 
-    console.log(gen);
-    contador += 1;
   
     const novoObjeto = {
-      id: contador,
       nome: nome.value,
       genero: gen,
       image: url.value,
       link: compra.value,
     };
   
-    GamesArray.push(novoObjeto);
+    const res = await fetch('http://localhost:3000/Dataset',{
+      method: 'post',
+      body: JSON.stringify(novoObjeto),
+      headers:{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    });
+    
+    
   
     loadCards();
   
@@ -79,12 +89,16 @@ function addGame() {
     for(let i=0;i<genero.length;i++) {
       genero[i].checked = gridCheck.unchecked
     }
+    return await res.json();
   }
 
 // Função para remover o jogo(objeto) através do seu id
 
-export function removeGame(id) {
-    GamesArray = GamesArray.filter((element) => element.id != id);
+export async function removeGame(id) {
+   const response = await fetch(`http://localhost:3000/Dataset/${id}`,{
+    method: 'delete'
+   });
+    // GamesArray = GamesArray.filter((element) => element.id != id);
     loadCards();
   }
   
@@ -120,21 +134,34 @@ function filtergeneros(element,genero){
     if(element.genero[i] == genero){return element}
   }
 }
-export function filterCards(genero){
-let res = GamesArray.filter(element => filtergeneros(element,genero) == element);
+export async function filterCards(genero){
+let res = games.filter(element => filtergeneros(element,genero) == element);
 // let filter = []
 // for(let element of Dataset){
 //   let res
 //  res = filtergeneros(element,genero)
 //  if(res != undefined){
 //   filter.push(res);
-loadCards(res);
+//loadCards(res);
+CardGames.innerHTML =''
+res.map(ele => CreateCard(ele));
  //}
 //}
 //GamesArray = filter
 //loadCards()
 }
 document.querySelector("#homepage").addEventListener("click",(event) =>loadCards())
+document.querySelector('#AtSearch').addEventListener('click',(event) => { 
+let texto =document.querySelector("#search").value
+console.log(texto)
+if(regex.test(texto) ==false){
+window.alert("digite apenas caracteres validos!!");
+}
+else{
+  // res =games.filter(ele =>)
+}
+})
+
 
 window.removeGame = removeGame;
 window.confirmRemove =confirmRemove;

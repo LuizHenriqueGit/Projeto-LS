@@ -19,3 +19,7 @@ body {
   .card:hover div button {
     opacity: 1;
   }
+
+  body{
+   min-height: 100vh; 
+  }
